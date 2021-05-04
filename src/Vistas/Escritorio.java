@@ -14,7 +14,9 @@ import tp7.pkg2021.Materia;
  * @author Nahu
  */
 public class Escritorio extends javax.swing.JFrame {
-
+    
+    private HashSet<Alumno>lAlumno=new HashSet<>();
+    private HashSet<Materia> lMateria=new HashSet<>();
     /**
      * Creates new form Escritorio
      */
@@ -22,8 +24,7 @@ public class Escritorio extends javax.swing.JFrame {
         initComponents();
         
     }
-    private HashSet<Alumno>listaAlumno=new HashSet<>();
-    private HashSet<Materia> listaMateria=new HashSet<>();
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -36,9 +37,11 @@ public class Escritorio extends javax.swing.JFrame {
         jRadioButtonMenuItem1 = new javax.swing.JRadioButtonMenuItem();
         escritorio = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
-        jMenu3 = new javax.swing.JMenu();
+        jmMateria = new javax.swing.JMenu();
+        jMenu5 = new javax.swing.JMenu();
+        jmAlumno = new javax.swing.JMenu();
+        jMenu6 = new javax.swing.JMenu();
+        jmInscripcion = new javax.swing.JMenu();
         jRadioButtonMenuItem2 = new javax.swing.JRadioButtonMenuItem();
         jMenu4 = new javax.swing.JMenu();
 
@@ -58,13 +61,26 @@ public class Escritorio extends javax.swing.JFrame {
             .addGap(0, 405, Short.MAX_VALUE)
         );
 
-        jMenu1.setText("Materia");
-        jMenuBar1.add(jMenu1);
+        jmMateria.setText("Materia");
 
-        jMenu2.setText("Alumno");
-        jMenuBar1.add(jMenu2);
+        jMenu5.setText("Agregar materia");
+        jmMateria.add(jMenu5);
 
-        jMenu3.setText("Inscripcion");
+        jMenuBar1.add(jmMateria);
+
+        jmAlumno.setText("Alumno");
+
+        jMenu6.setText("Alta de alumnos");
+        jmAlumno.add(jMenu6);
+
+        jMenuBar1.add(jmAlumno);
+
+        jmInscripcion.setText("Inscripcion");
+        jmInscripcion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmInscripcionActionPerformed(evt);
+            }
+        });
 
         jRadioButtonMenuItem2.setSelected(true);
         jRadioButtonMenuItem2.setText("Inscripcion");
@@ -73,9 +89,9 @@ public class Escritorio extends javax.swing.JFrame {
                 jRadioButtonMenuItem2ActionPerformed(evt);
             }
         });
-        jMenu3.add(jRadioButtonMenuItem2);
+        jmInscripcion.add(jRadioButtonMenuItem2);
 
-        jMenuBar1.add(jMenu3);
+        jMenuBar1.add(jmInscripcion);
 
         jMenu4.setText("Salir");
         jMenu4.addActionListener(new java.awt.event.ActionListener() {
@@ -109,15 +125,24 @@ public class Escritorio extends javax.swing.JFrame {
         //llamo al evento
         escritorio.removeAll();
         escritorio.repaint();
-        inscripcionVista vi = new inscripcionVista(listaAlumno, listaMateria);
+        inscripcionVista vi = new inscripcionVista(lAlumno, lMateria);
         vi.setVisible(true);
         escritorio.add(vi);
         escritorio.moveToFront(vi);//para mandar ventana al frente
     }//GEN-LAST:event_jRadioButtonMenuItem2ActionPerformed
 
     private void jMenu4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu4ActionPerformed
-        System.exit(WIDTH);
+        dispose();
     }//GEN-LAST:event_jMenu4ActionPerformed
+
+    private void jmInscripcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmInscripcionActionPerformed
+        escritorio.removeAll();
+        escritorio.repaint();
+        inscripcionVista vi = new inscripcionVista(lAlumno,lMateria);
+        vi.setVisible(rootPaneCheckingEnabled);
+        escritorio.add(vi);
+        escritorio.moveToFront(vi);//Para que vaya esta ventana al frente
+    }//GEN-LAST:event_jmInscripcionActionPerformed
 
     /**
      * @param args the command line arguments
@@ -156,12 +181,14 @@ public class Escritorio extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane escritorio;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenu jMenu5;
+    private javax.swing.JMenu jMenu6;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem1;
     private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem2;
+    private javax.swing.JMenu jmAlumno;
+    private javax.swing.JMenu jmInscripcion;
+    private javax.swing.JMenu jmMateria;
     // End of variables declaration//GEN-END:variables
 }
