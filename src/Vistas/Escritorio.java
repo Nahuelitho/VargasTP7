@@ -64,6 +64,11 @@ public class Escritorio extends javax.swing.JFrame {
         jmMateria.setText("Materia");
 
         jMenu5.setText("Agregar materia");
+        jMenu5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu5ActionPerformed(evt);
+            }
+        });
         jmMateria.add(jMenu5);
 
         jMenuBar1.add(jmMateria);
@@ -71,6 +76,11 @@ public class Escritorio extends javax.swing.JFrame {
         jmAlumno.setText("Alumno");
 
         jMenu6.setText("Alta de alumnos");
+        jMenu6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu6ActionPerformed(evt);
+            }
+        });
         jmAlumno.add(jMenu6);
 
         jMenuBar1.add(jmAlumno);
@@ -143,6 +153,24 @@ public class Escritorio extends javax.swing.JFrame {
         escritorio.add(vi);
         escritorio.moveToFront(vi);//Para que vaya esta ventana al frente
     }//GEN-LAST:event_jmInscripcionActionPerformed
+
+    private void jMenu5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu5ActionPerformed
+        escritorio.removeAll();
+        escritorio.repaint();
+        materiaVista mv = new materiaVista();
+        mv.setVisible(true);
+        escritorio.add(mv);
+        escritorio.moveToFront(mv);
+    }//GEN-LAST:event_jMenu5ActionPerformed
+
+    private void jMenu6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu6ActionPerformed
+        escritorio.removeAll();
+        escritorio.repaint();
+        alumnosVista av = new alumnosVista();
+        av.setVisible(true);
+        escritorio.add(av);
+        escritorio.moveToFront(av);
+    }//GEN-LAST:event_jMenu6ActionPerformed
 
     /**
      * @param args the command line arguments

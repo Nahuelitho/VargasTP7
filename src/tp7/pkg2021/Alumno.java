@@ -8,10 +8,13 @@ public class Alumno {
     private String apellido;
     private String nombre;
     private HashSet<Materia> materias=new HashSet<>();
-    public Alumno(int legajo, String apellido) {
+
+    public Alumno(int legajo, String apellido, String nombre) {
         this.legajo = legajo;
         this.apellido = apellido;
+        this.nombre = nombre;
     }
+    
 
     
     public int getLegajo() {
